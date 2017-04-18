@@ -1,0 +1,35 @@
+<html>
+	
+<body style="background-image:url('https://giphy.com/embed/26BGDQxDCZDFHW5Ne')">
+								<div id="tempDisply"></div>
+			<iframe src="https://giphy.com/embed/26BGDQxDCZDFHW5Ne" width="240" height="180" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/animation-loop-sun-26BGDQxDCZDFHW5Ne">via GIPHY</a></p>
+
+developping...
+			<script src="jquery-3.1.1.js"></script>
+			
+<script>
+							var UR1='http://api.openweathermap.org/data/2.5/weather?';
+							var key='&APPID=a5e4b37ef73b61cb4b8c99d6a96e99e0';
+							var path;
+							var $disply=$('#tempDisply')
+									$.get("https://ipinfo.io", function(response) {
+									var str=response.loc;
+									str=str.slice(',')
+									path=UR1+'lat='+str[0]+'&lon='+str[1]+key+'&units=metric';
+											$.ajax({
+													url:path,
+													success: function(data){
+														$disply.append('<h2>temp= '+data.main.temp + ' <span id:"switch"> °C</span><h2>')
+														$disply.append('<p><strong>city:</strong>'+response.city +'<br>'+
+														'<strong>country:</strong>'+ response.country+'</p>')}});
+															
+														}, "jsonp")
+										
+
+
+
+
+</script>
+</body>
+</html>
+
